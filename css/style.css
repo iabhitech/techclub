@@ -37,6 +37,13 @@
     url(../font/roboto/Roboto-Bold.ttf) format("truetype");
   font-weight: 700;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+.md-pills .nav-link.active {
+  background-color: #3f51b5;
+}
 
 footer li {
   margin-bottom: 0.9rem;
@@ -93,6 +100,31 @@ footer li {
   height: 150px;
 }
 
+body main{
+  margin-top: 4.2rem;
+}
+
+
+@media (max-width:369px) and (min-width:321px){
+  body main{
+    margin-top: 6rem;
+  }
+}
+@media (max-width:320px){
+  body main{
+    margin-top: 8rem;
+  }
+}
+@media (max-width: 215px){
+  .nav li.nav-item:not(.avatar){
+    display: none;
+  }
+  body main{
+    margin-top: 3.5rem;
+  }
+}
+
+
 /* ****************************************************************
   Light Nav Bar 
   ******************************************************************
@@ -108,9 +140,7 @@ nav a {
 nav a:hover {
   color: black;
 }
-nav .avatar .dropdown-toggle::after {
-  border: none;
-}
+
 .navbar p {
   margin-bottom: 0;
   margin-left: 10px;
@@ -126,6 +156,31 @@ nav .avatar .dropdown-toggle::after {
   color: white;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),  0 2px 10px 0 rgba(0,0,0,.12);
 }
+@media (max-width: 496px){
+  .breadcrumb-dn{
+    display: none;
+  }
+}
+.nav .avatar.dropdown span{
+  font-weight: 500;
+  font-size: small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 5.9rem;
+  vertical-align: middle;
+}
+
+
+
+.avatar-sm{
+  height: 35px;
+  width: 35px;
+}
+.avatar-xl{
+  height: 50px;
+  width: 50px;
+}
 /*
 **************************************************************************** 
  */
@@ -137,16 +192,17 @@ The side navigation menu
 Material Design side Nav
 ****************************************************************************
 */
+
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1040; /* Stay on top */
+  z-index: 1020; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: white; /* white*/
   overflow-x: hidden; /* Disable horizontal scroll */
-  /* padding-top: 60px; Place content 60px from the top */
+   padding-top: 60px; /*Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
 }
@@ -158,8 +214,8 @@ Material Design side Nav
   color: #2b2b2b;
   display: block;
   transition: 0.3s;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   font-size: .85rem;
   font-weight: 400;
   padding-left: 10px;
@@ -187,12 +243,9 @@ Material Design side Nav
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
   .sidenav a {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 }
 
@@ -208,7 +261,7 @@ Material Design side Nav
   position: fixed;
 }
 
-.fixed-sn .double-nav,
+.fixed-sn .double-na,
 .fixed-sn footer,
 .fixed-sn main {
   padding-left: 15rem;
@@ -240,11 +293,10 @@ Material Design side Nav
     margin-left: 10px;
   }
 }
-.sidenav .brand-logo {
+/* .sidenav .brand-logo {
   border-bottom: 1px solid rgba(153, 153, 153, 0.3);
-  text-align: center;
   padding-top: 8%;
-  padding-bottom:8%;
+  padding-bottom:2%;
 }
 .sidenav .brand-logo img {
   max-width: 140px;
@@ -255,12 +307,21 @@ Material Design side Nav
     padding-top: 0;
     padding-bottom: 0;
   }
+} */
+.sidenav .user-info{
+  padding-top: 4%;
+  padding-bottom:0;
+}
+.sidenav .user-info .collapsible-header{
+  border-bottom: 1px solid rgba(153, 153, 153, 0.3);
 }
 
 .sidenav .social-icon {
   list-style: none;
   margin: auto;
+  margin-top: 1rem;
   border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+  border-top: 1px solid rgba(153, 153, 153, 0.3);
   padding: 0;
   display: -webkit-box;
   display: -moz-box;
@@ -288,9 +349,10 @@ Material Design side Nav
 }
 
   .sidenav .fa-angle-down.rotate-icon{
-  position: absolute;
+  /* position: absolute;
   right: 0;
-  top: .8rem;
+  top: .8rem; */
+  float: right;
   }
 
 .collapsible li .collapsible-header.active {
@@ -308,6 +370,15 @@ Material Design side Nav
   background-color: #d6d6d6;
   padding-left: 2.5rem;
 }
+.sidenav .user-info .collapsible ul{
+  overflow-y: hidden;
+  background-color: #d6d6d6;
+  padding-left: 0;
+}
+.sidenav .user-info .collapsible ul a{
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
 .sidenav .collapsible ul li a:hover{
   color: #4285F4;
 }
@@ -324,7 +395,33 @@ Material Design side Nav
   border-radius: none;
   border-bottom: 1px solid #4285F4;
 }
-
+.sidenav .user-info .info h6{
+  font-weight: 500;
+  margin: 2px 0;
+}
+.sidenav .user-info .info h6 i{
+  margin-top: .2rem;
+}
+.sidenav .user-info .collapsible .collapsible-header.active{
+  color: initial;
+} 
+.drag-sidenav{
+  position: fixed;
+  left: 0;
+  top:0; 
+  width:10px;
+  height: 90vh;
+}
+.mask.nav-mask{
+  width: 0;
+}
+.mask.nav-mask-active{
+  position:fixed; 
+  width:100vw; 
+  top:0; 
+  height:100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
 /*
 ******************************************************** 
 sidenav css end 

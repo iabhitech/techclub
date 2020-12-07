@@ -6978,7 +6978,8 @@ button.bg-dark:focus {
   display: inline-flex !important;
 }
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) { */
+@media (min-width: 785px) {
   .d-sm-none {
     display: none !important;
   }
