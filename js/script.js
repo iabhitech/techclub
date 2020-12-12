@@ -1,29 +1,51 @@
+// Animations init
+// new WOW().init();
+
+function register(){
+  $('#myTab a[href="#register"]').trigger('click');
+}
+function login(){
+  $('#myTab a[href="#signIn"]').trigger('click');
+}
+
+////////////////////////////
 function init(){
-    $('#footerWrapper').load('/layout/footer');
+    $('#footerWrapper').load('/layout/_footer.html', function(response, status, xhr ){
+      if ( status == "error" ) {
+        console.log(xhr.status + " " + xhr.statusText);
+      }
+    });
+    // $('header').load('#', function(response, status, xhr ){
+    //   if ( status == "error" ) {
+    //     console.log(xhr.status + " " + xhr.statusText);
+    //   }
+    // });
 };
 
 $(document).ready(function(){
     init();   
-});
-
-// Animations init
-// new WOW().init();
 
 
+
+
+/* **************************************
+* Slide Bar 
+****************************************
+*/ 
 $(window).bind("load", function() { 
   // insert your code here 
   if(window.innerWidth < 1440){
     $('main').append('<div class="drag-sidenav" style="position: fixed;left: 0;top:0; width:10px;height: 90vh;"></div>');
-    $('<div class="mask nav-mask"></div>').insertBefore('footer');
+    $('<div class="mask nav-mask"></div>').insertBefore('main');
       $('.drag-sidenav').on('click',function(){
         $('#openSideNav').trigger('click');
       });
       $('.nav-mask').on('click', function(){
+        console.log('click');
         $('#openSideNav').trigger('click');
       });
   }
 });
-
 
 
 $('#openSideNav').on('click', function(){
@@ -38,9 +60,9 @@ $('.collapsible-header').on('click',function(){
   // $($(this.parentNode).find('.collapsible-body')).slideToggle("slow");
 });
 
-function register(){
-  $('#myTab a[href="#register"]').trigger('click');
-}
-function login(){
-  $('#myTab a[href="#signIn"]').trigger('click');
-}
+/* **************************************
+* Slide Bar End
+****************************************
+*/ 
+
+});

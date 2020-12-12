@@ -170,16 +170,27 @@ nav a:hover {
   max-width: 5.9rem;
   vertical-align: middle;
 }
-
+/* correcting bootstrap dropdown in small device */
+.avatar.dropdown .dropdown-menu{
+  width: min-content; right: 0;left: inherit;
+}
 
 
 .avatar-sm{
   height: 35px;
   width: 35px;
 }
+.avatar-x{
+  height: 40px;
+  width: 40px;
+}
 .avatar-xl{
   height: 50px;
   width: 50px;
+}
+.avatar-xxl{
+  height: 100px;
+  width: 100px;
 }
 /*
 **************************************************************************** 
@@ -219,11 +230,6 @@ Material Design side Nav
   font-size: .85rem;
   font-weight: 400;
   padding-left: 10px;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
 }
 
 /* Position and style the close button (top right corner) */
@@ -368,6 +374,8 @@ Material Design side Nav
 .sidenav .collapsible ul{
   overflow-y: hidden;
   background-color: #d6d6d6;
+}
+.sidenav .collapsible ul a{
   padding-left: 2.5rem;
 }
 .sidenav .user-info .collapsible ul{
@@ -420,10 +428,51 @@ Material Design side Nav
   width:100vw; 
   top:0; 
   height:100vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 /*
 ******************************************************** 
 sidenav css end 
 *********************************************************
  */
+
+ .dashboard .card.loading{
+  min-width: fit-content;
+  min-height: 200px;
+ }
+ .card .card-body a{
+   color: inherit;
+ }
+ .card .card-body li{
+   padding: 5px 10px;
+ }
+ .card a:hover{
+  color: #4285F4;
+}
+.md-select{
+  /* width: fit-content;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  color: grey;
+  border-radius:2px; */
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    color: #4b4f56;
+    border-radius: 2em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 6px 5px 8px;
+    box-shadow: 0 0 0 1px #e4e4e4;
+    outline: none;
+}
+.md-select option{
+  background-color: #f2f2f2;
+  color: #0277bd;
+}
+
+.feature-card .card:hover{
+  transform: scale(1.05);
+
+}
